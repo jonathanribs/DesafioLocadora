@@ -1,35 +1,47 @@
 import java.util.Scanner;
 
-public class CadastrarVeiculo {
+public class Utilities {
 
-    Frota frota = new Frota();
     Scanner in = new Scanner(System.in);
 
-    public void cadastro(){
+    public Frota cadastrarVeiculo (Frota frota){
+
         String opt = "";
         while (!opt.equals("X")){
 
-            System.out.println("(A) Moto \n(B)Carro \n(C)Caminhao \n(D)Onibus \n(X)Cancelar");
+            System.out.println("\n(A) Moto \n(B) Carro \n(C) Caminhao \n(D) Onibus \n(X) Cancelar");
             opt = in.next().toUpperCase();
 
             if (opt.equals("A")){
-                Moto veiculo = new Moto("hmv2786", "ford", 2010, "azul", 4);
+
+                Moto veiculo = new Moto("a1", "honda", 2010, "vermelha", 125);
                 frota.novoVeiculo(veiculo);
                 opt = "X";
+
             }else if (opt.equals("B")){
-                Carro veiculo = new Carro("hmv2786", "ford", 2010, "azul", 4, true, "Auto", "Hidro");
+
+                Carro veiculo = new Carro("a2", "fiat", 2011, "prata", 4, true, "Auto", "Hidro");
                 frota.novoVeiculo(veiculo);
                 opt = "X";
+
             } else if (opt.equals("C")){
-                Caminhao veiculo = new Caminhao("hmv2786", "ford", 2010, "azul", 4);
+
+                Caminhao veiculo = new Caminhao("a3", "ford", 2012, "branco", 10);
                 frota.novoVeiculo(veiculo);
                 opt = "X";
+
             } else if (opt.equals("D")){
-                Onibus veiculo = new Onibus("hmv2786", "ford", 2010, "azul", 4);
+
+                Onibus veiculo = new Onibus("a4", "mercedes", 2013, "azul", 40);
                 frota.novoVeiculo(veiculo);
                 opt = "X";
+
             } 
 
         }
+
+        //frota.imprimeVeiculos();
+        return frota;
+
     }
 }

@@ -4,31 +4,28 @@ public class App {
     public static void main(String[] args) throws Exception {
 
         Scanner in = new Scanner(System.in);
-        
-        Carro carro = new Carro("hmv2786", "ford", 2010, "azul", 4, true, "Auto", "Hidro");
-
-        System.out.println(carro.getTipo());
-        System.out.println(carro.getPlaca());
-        System.out.println(carro.getDisponibilidade());
 
         Frota frota = new Frota();
 
-        frota.novoVeiculo(carro);
-
-        CadastrarVeiculo c = new CadastrarVeiculo();
+        Utilities utils = new Utilities();
 
         String opt = "";
         while (!opt.equals("X")){
 
-            System.out.println("(C) Cadastrar Veiculo \n(L)Nova Locacao \n(X) Encerrar");
+            System.out.println("(C) Cadastrar Veiculo \n(L) Nova Locacao \n(X) Encerrar");
             opt = in.next().toUpperCase();
 
             if (opt.equals("C")){
                 
-                c.cadastro();
+                utils.cadastrarVeiculo(frota);
 
             } else if (opt.equals("L")){
+
+                frota.imprimeVeiculos();
+
             }
+
+            System.out.println();
 
         }
 
