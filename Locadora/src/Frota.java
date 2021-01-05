@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 public class Frota {
 
-    public ArrayList<Veiculos> veiculos = new ArrayList<>();
+    public ArrayList<Veiculo> veiculos = new ArrayList<>();
 
-    public void novoVeiculo(Veiculos v){
+    public void novoVeiculo(Veiculo v){
         
         veiculos.add(v);
 

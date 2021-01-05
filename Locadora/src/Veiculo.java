@@ -1,20 +1,25 @@
-public abstract class Veiculos {
+public abstract class Veiculo {
 
     private String placa;
     private String marca;
     private int ano;
     private String cor;
     private boolean disponivel;
+    private char tipo;
 
-    public Veiculos (String placa, String marca, int ano, String cor){
+    public Veiculo (String placa, String marca, int ano, String cor, char tipo){
 
         //testar aqui se a placa já existe. Varrer o Array Frota para conferir isto
         //se a placa já existir, imprimir mensagem de erro, só cadastrar se não existir
+
+        /* System.out.println("Informe a placa:")" */
         this.placa = placa;
         this.marca = marca;
         this.ano = ano;
         this.cor = cor;
         this.disponivel = true;
+        this.tipo = tipo;
+
     }
     
     public String getPlaca(){
@@ -32,7 +37,7 @@ public abstract class Veiculos {
     public String getCor(){
         return cor;
     }
-    public void getCor(String cor){
+    public void setCor(String cor){
         this.cor = cor;
     }
 
@@ -42,4 +47,9 @@ public abstract class Veiculos {
     public void setDisponibilidade(boolean disponivel){
         this.disponivel = disponivel;
     }
+
+    public char getTipo(){
+        return this.tipo;
+    }
+
 }
