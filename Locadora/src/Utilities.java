@@ -40,8 +40,26 @@ public class Utilities {
 
         }
 
-        //frota.imprimeVeiculos();
         return frota;
 
+    }
+
+    public CadastroLocacao novaLocacao (CadastroLocacao cadastroLocacao, String placa){
+
+        String telefone = "";
+        String tipo = "";
+
+        System.out.println("Qual a categoria da CNH? ");
+        tipo = in.next().toUpperCase();
+        //validacao
+
+        System.out.println("Telefone para contato: ");
+        telefone = in.next();
+
+
+        Locacao locacao = new Locacao(placa, telefone);
+        cadastroLocacao.novaLocacao(locacao);
+
+        return cadastroLocacao;
     }
 }

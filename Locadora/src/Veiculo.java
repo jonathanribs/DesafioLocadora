@@ -48,7 +48,7 @@ public abstract class Veiculo {
         this.disponivel = disponivel;
     }
 
-    public char getTipo(){
+    public char getTipo(){//TRANSFORMAR EM ABSTRATO PARA RETORNAR "MOTO/CARRO/CAMINHAO/ONIBUS"
         return this.tipo;
     }
 
