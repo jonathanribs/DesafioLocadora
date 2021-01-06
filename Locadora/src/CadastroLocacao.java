@@ -21,22 +21,24 @@ public class CadastroLocacao {
 
     }
 
-    public boolean encerrarLocacao(String placa){
+    public boolean encerrarLocacao(String placa, Frota frota){
 
         for (Locacao l : locacao){
 
             if (l.getPlaca().equals(placa)){
                 this.locacao.remove(l);
 
+                int index = frota.buscarVeiculo(placa);
+                frota.veiculos.get(index).setDisponibilidade(true);
+                System.out.println("Locacao do veiculo placa " + placa + " encerrada com sucesso!");
+
                 return true;
             }
         }
 
-        return false;
+        System.out.println("Não ha veiculo locado com esta placa!");
+        return false;  
 
     }
     
 }
-
-
-/*arrumar prints e colocar o carro novamente disponivel*/

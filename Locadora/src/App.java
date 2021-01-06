@@ -61,18 +61,7 @@ public class App {
                 System.out.println("Informe a placa do veiculo");
                 placa = in.next().toUpperCase();
 
-                boolean controle = locacoes.encerrarLocacao(placa);
-
-                if (controle){
-                    
-                    int index = frota.buscarVeiculo(placa);
-                    frota.veiculos.get(index).setDisponibilidade(true);
-                    System.out.println("Locacao do veiculo placa " + placa + " encerrada com sucesso!");
-
-                } else {
-
-                    System.out.println("Não ha veiculo locado com esta placa!");
-                }    
+                locacoes.encerrarLocacao(placa, frota);  
 
             }
             //Criar uma opção de alterar data manualmente
