@@ -24,10 +24,11 @@ public class Frota {
     public int buscarVeiculo(String placa){
         for(Veiculo v: veiculos){
             if (v.getPlaca().equals(placa)){
-                return veiculos.indexOf(v);
+                return veiculos.indexOf(v); // retorna o index do veiculo que possui a placa indicada
             }
         }
-        return -1;
+        
+        return -1; //Retorna este valor se a placa não existir
     }
-    
+        
 }

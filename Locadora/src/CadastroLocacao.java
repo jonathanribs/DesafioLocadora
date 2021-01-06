@@ -4,7 +4,7 @@ public class CadastroLocacao {
 
     public ArrayList<Locacao> locacao = new ArrayList<>();
 
-    public void novaLocacao(Locacao locacao){
+    public void adicionarLocacao(Locacao locacao){
         
         this.locacao.add(locacao);
 

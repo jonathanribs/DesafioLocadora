@@ -24,11 +24,11 @@ public class App {
 
                 String placa = "";
 
-                System.out.println("VEICULOS DISPONIVEIS");
+                System.out.println("VEICULOS");
                 frota.imprimeVeiculos();
                 System.out.println("Digite a placa do veiculo que sera locado: ");
                 placa = in.next().toUpperCase(); 
-                
+
                 int index = frota.buscarVeiculo(placa);
                 if(index == -1){
                     
@@ -37,8 +37,17 @@ public class App {
                 } else {
                     
                     Veiculo veiculoLocado = frota.veiculos.get(index);
-                    utils.novaLocacao(locacoes,veiculoLocado); 
 
+                    if (veiculoLocado.getDisponibilidade()){
+                        
+                        utils.novaLocacao(locacoes,veiculoLocado);
+
+                    } else {
+                        
+                        System.out.println("Veiculo não esta disponivel!");
+
+                    }
+                    
                 }
 
             } else if (opt.equals("Z")){ //apenas para teste

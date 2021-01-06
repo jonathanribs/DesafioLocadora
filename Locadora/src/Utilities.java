@@ -7,22 +7,22 @@ public class Utilities {
     public Frota cadastrarVeiculo (Frota frota){
 
         String opt = "";
-        while (!opt.equals("X")){
 
-            String novaPlaca = "";
-            System.out.println("Digite a placa: ");
-            novaPlaca = in.next().toUpperCase();
+        String novaPlaca = "";
+        System.out.println("Digite a placa: ");
+        novaPlaca = in.next().toUpperCase();
 
-            boolean placaUnica = true;
-            for (Veiculo v: frota.veiculos){
-                if (v.getPlaca().equals(novaPlaca)){
+        boolean placaUnica = true;
+        for (Veiculo v: frota.veiculos){
+            if (v.getPlaca().equals(novaPlaca)){
                     placaUnica = false;
-                }
             }
+        }
 
-            if (!placaUnica){
-                System.out.println("Essa placa já existe!");
-            } else {
+        if (!placaUnica){
+            System.out.println("Essa placa já existe!");
+        } else {
+            while (!opt.equals("X")){
                 System.out.println("\n(A) Moto \n(B) Carro \n(C) Caminhao \n(D) Onibus \n(X) Cancelar");
                 opt = in.next().toUpperCase();
 
@@ -59,10 +59,10 @@ public class Utilities {
 
     }
 
-    public CadastroLocacao novaLocacao (CadastroLocacao cadastroLocacao, Veiculo veiculoLocado){
+    public void novaLocacao (CadastroLocacao cadastroLocacao, Veiculo veiculoLocado){
 
-        String telefone = "";
         String cnh = "";
+        String telefone = "";
 
         System.out.println("Qual a categoria da CNH? ");
         cnh = in.next().toUpperCase();
@@ -73,12 +73,13 @@ public class Utilities {
 
             String placa = veiculoLocado.getPlaca();
             Locacao locacao = new Locacao(placa, telefone);
-            cadastroLocacao.novaLocacao(locacao);
+            cadastroLocacao.adicionarLocacao(locacao);
+
+            veiculoLocado.setDisponibilidade(false);
 
         } else {
-            System.out.println("Você não está apto para dirigir este tipo de veiculo");
+            System.out.println("Você não esta apto para dirigir este tipo de veiculo!");
         }
         
-        return cadastroLocacao;
     }
 }
