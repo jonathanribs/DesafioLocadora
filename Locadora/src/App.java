@@ -13,19 +13,22 @@ public class App {
         String opt = "";
         while (!opt.equals("X")){
 
-            System.out.println("(C) Cadastrar Veiculo \n(N) Nova Locacao \n(L) Visualizar Locacoes \n(X) Encerrar\n");
+            System.out.println("(C) Cadastrar Veiculo \n(V) Visualizar Frota \n(N) Nova Locacao"+ 
+            "\n(E) Encerrar Locacoes \n(L) Visualizar Locacoes \n(X) Encerrar\n");
             opt = in.next().toUpperCase();
 
             if (opt.equals("C")){
                 
                 utils.cadastrarVeiculo(frota);
 
+            } else if (opt.equals("V")){
+                
+                frota.imprimeVeiculos();   
+
             } else if (opt.equals("N")){
 
                 String placa = "";
 
-                System.out.println("VEICULOS");
-                frota.imprimeVeiculos();
                 System.out.println("Digite a placa do veiculo que sera locado: ");
                 placa = in.next().toUpperCase(); 
 
@@ -52,7 +55,30 @@ public class App {
 
             } else if (opt.equals("L")){ 
                 locacoes.imprimeLocacoes();
+            } else if (opt.equals("E")){
+
+                String placa = "";
+                System.out.println("Informe a placa do veiculo");
+                placa = in.next().toUpperCase();
+
+                boolean controle = locacoes.encerrarLocacao(placa);
+
+                if (controle){
+                    
+                    int index = frota.buscarVeiculo(placa);
+                    frota.veiculos.get(index).setDisponibilidade(true);
+                    System.out.println("Locacao do veiculo placa " + placa + " encerrada com sucesso!");
+
+                } else {
+
+                    System.out.println("Não ha veiculo locado com esta placa!");
+                }    
+
             }
+            //Criar uma opção de alterar data manualmente
+            //quando acontecer, varrer o vertor de cadastroLocacao comparando com o atributo data (que tmb deve ser add)
+            //se a data for maior, remover a locacao e imprimir uma mensagem
+            //A primeira coisa é criar a função que encerra determinada locacao a partir da placa
 
             System.out.println();
 

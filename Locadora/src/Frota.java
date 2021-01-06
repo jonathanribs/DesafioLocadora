@@ -12,6 +12,7 @@ public class Frota {
 
     public void imprimeVeiculos(){
 
+        System.out.println("VEICULOS");
         for (Veiculo v : veiculos){
             v.imprimirAtributos();
         }
@@ -25,7 +26,7 @@ public class Frota {
             }
         }
         
-        return -1; //Retorna este valor se a placa não existir
+        return -1; //Retorna -1 se a placa não existir
     }
         
 }
