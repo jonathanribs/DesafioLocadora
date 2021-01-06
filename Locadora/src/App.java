@@ -27,8 +27,7 @@ public class App {
                 System.out.println("VEICULOS DISPONIVEIS");
                 frota.imprimeVeiculos();
                 System.out.println("Digite a placa do veiculo que sera locado: ");
-                placa = in.next(); //tentar usar placa.equalsIgnoreCase(anotherString)
-                //Se true eu faço, se não mensagem de erro...
+                placa = in.next().toUpperCase(); 
                 
                 int index = frota.buscarVeiculo(placa);
                 if(index == -1){

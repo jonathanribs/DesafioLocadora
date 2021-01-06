@@ -11,6 +11,7 @@ public class Carro extends Veiculo{
         this.portas = p;
         this.arCondicionado = a;
         //sysout ("o carro possui ar? (1)s (2) n")... if... this.arCondicionado = boolean
+        //passar as opções quando for o caso, mas não é necessário usar boolean se for só 2 opções
         this.cambio = c;
         this.direcao = d;
         

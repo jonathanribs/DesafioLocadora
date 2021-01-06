@@ -9,34 +9,49 @@ public class Utilities {
         String opt = "";
         while (!opt.equals("X")){
 
-            System.out.println("\n(A) Moto \n(B) Carro \n(C) Caminhao \n(D) Onibus \n(X) Cancelar");
-            opt = in.next().toUpperCase();
+            String novaPlaca = "";
+            System.out.println("Digite a placa: ");
+            novaPlaca = in.next().toUpperCase();
 
-            if (opt.equals("A")){
+            boolean placaUnica = true;
+            for (Veiculo v: frota.veiculos){
+                if (v.getPlaca().equals(novaPlaca)){
+                    placaUnica = false;
+                }
+            }
 
-                Moto veiculo = new Moto("a1", "honda", 2010, "vermelha", 125);
-                frota.novoVeiculo(veiculo);
-                opt = "X";
+            if (!placaUnica){
+                System.out.println("Essa placa já existe!");
+            } else {
+                System.out.println("\n(A) Moto \n(B) Carro \n(C) Caminhao \n(D) Onibus \n(X) Cancelar");
+                opt = in.next().toUpperCase();
 
-            }else if (opt.equals("B")){
+                if (opt.equals("A")){
 
-                Carro veiculo = new Carro("a2", "fiat", 2011, "prata", 4, true, "Auto", "Hidro");
-                frota.novoVeiculo(veiculo);
-                opt = "X";
+                    Moto veiculo = new Moto(novaPlaca, "honda", 2010, "vermelha", 125);
+                    frota.novoVeiculo(veiculo);
+                    opt = "X";
 
-            } else if (opt.equals("C")){
+                }else if (opt.equals("B")){
 
-                Caminhao veiculo = new Caminhao("a3", "ford", 2012, "branco", 10);
-                frota.novoVeiculo(veiculo);
-                opt = "X";
+                    Carro veiculo = new Carro(novaPlaca, "fiat", 2011, "prata", 4, true, "Auto", "Hidro");
+                    frota.novoVeiculo(veiculo);
+                    opt = "X";
 
-            } else if (opt.equals("D")){
+                } else if (opt.equals("C")){
 
-                Onibus veiculo = new Onibus("a4", "mercedes", 2013, "azul", 40);
-                frota.novoVeiculo(veiculo);
-                opt = "X";
+                    Caminhao veiculo = new Caminhao(novaPlaca, "ford", 2012, "branco", 10);
+                    frota.novoVeiculo(veiculo);
+                    opt = "X";
 
-            } 
+                } else if (opt.equals("D")){
+
+                    Onibus veiculo = new Onibus(novaPlaca, "mercedes", 2013, "azul", 40);
+                    frota.novoVeiculo(veiculo);
+                    opt = "X";
+
+                } 
+            }
 
         }
 

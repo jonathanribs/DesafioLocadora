@@ -9,9 +9,6 @@ public abstract class Veiculo {
 
     public Veiculo (String placa, String marca, int ano, String cor, String tipo){
 
-        //testar aqui se a placa já existe. Varrer o Array Frota para conferir isto
-        //se a placa já existir, imprimir mensagem de erro, só cadastrar se não existir
-
         /* System.out.println("Informe a placa:");
         this.placa = in.next();
         System.out.println("Informe a marca:")
