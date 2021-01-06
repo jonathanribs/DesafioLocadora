@@ -60,4 +60,9 @@ public abstract class Veiculo {
 
     public abstract boolean validaCNH(String cnh);
 
+    public void imprimirAtributos(){
+        System.out.println("Placa: " + this.getPlaca() + ", " + this.getTipo() + " " + 
+            this.getAno() + " " + this.getCor() + " da marca " + this.getMarca());
+    }
+
 }

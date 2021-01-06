@@ -21,4 +21,9 @@ public class Caminhao extends Veiculo{
         }
     }
 
+    public void imprimirAtributos(){
+        super.imprimirAtributos();
+        System.out.println(this.capacidade + " toneladas \n");
+    }
+
 }

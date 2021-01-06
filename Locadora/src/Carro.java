@@ -41,4 +41,10 @@ public class Carro extends Veiculo{
         }
     }
 
+    public void imprimirAtributos(){
+        super.imprimirAtributos();
+        System.out.println(this.portas + " portas, câmbio " + this.cambio + ", direção " + 
+        this.direcao + ", ar-condicionado: " + this.arCondicionado +"\n");
+    }
+
 }

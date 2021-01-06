@@ -21,4 +21,9 @@ public class Onibus extends Veiculo{
         }
     }
 
+    public void imprimirAtributos(){
+        super.imprimirAtributos();
+        System.out.println(this.assentos + " lugares \n");
+    }
+
 }

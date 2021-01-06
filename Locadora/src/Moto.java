@@ -20,5 +20,10 @@ public class Moto extends Veiculo{
             return false;
         }
     }
+    
+    public void imprimirAtributos(){
+        super.imprimirAtributos();
+        System.out.println(this.cilindradas + "cc \n");
+    }
 
 }

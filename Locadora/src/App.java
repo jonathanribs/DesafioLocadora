@@ -13,14 +13,14 @@ public class App {
         String opt = "";
         while (!opt.equals("X")){
 
-            System.out.println("(C) Cadastrar Veiculo \n(L) Nova Locacao \n(X) Encerrar\n");
+            System.out.println("(C) Cadastrar Veiculo \n(N) Nova Locacao \n(L) Visualizar Locacoes \n(X) Encerrar\n");
             opt = in.next().toUpperCase();
 
             if (opt.equals("C")){
                 
                 utils.cadastrarVeiculo(frota);
 
-            } else if (opt.equals("L")){
+            } else if (opt.equals("N")){
 
                 String placa = "";
 
@@ -50,7 +50,7 @@ public class App {
                     
                 }
 
-            } else if (opt.equals("Z")){ //apenas para teste
+            } else if (opt.equals("L")){ 
                 locacoes.imprimeLocacoes();
             }
 
