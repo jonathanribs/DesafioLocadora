@@ -7,9 +7,10 @@ public class Carro extends Veiculo{
 
     public Carro(String placa, String marca, int ano, String cor, int p, boolean a, String c, String d) {
         
-        super(placa, marca, ano, cor, 'B');
+        super(placa, marca, ano, cor, "Carro");
         this.portas = p;
         this.arCondicionado = a;
+        //sysout ("o carro possui ar? (1)s (2) n")... if... this.arCondicionado = boolean
         this.cambio = c;
         this.direcao = d;
         
@@ -30,5 +31,13 @@ public class Carro extends Veiculo{
     public String getDirecao(){
         return this.direcao;
     }    
+
+    public boolean validaCNH(String cnh){
+        if (cnh.equals("B") || cnh.equals("C") || cnh.equals("D")){
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }

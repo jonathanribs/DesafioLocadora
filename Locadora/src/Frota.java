@@ -20,5 +20,14 @@ public class Frota {
         }
 
     }
+
+    public int buscarVeiculo(String placa){
+        for(Veiculo v: veiculos){
+            if (v.getPlaca().equals(placa)){
+                return veiculos.indexOf(v);
+            }
+        }
+        return -1;
+    }
     
 }

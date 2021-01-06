@@ -44,22 +44,26 @@ public class Utilities {
 
     }
 
-    public CadastroLocacao novaLocacao (CadastroLocacao cadastroLocacao, String placa){
+    public CadastroLocacao novaLocacao (CadastroLocacao cadastroLocacao, Veiculo veiculoLocado){
 
         String telefone = "";
-        String tipo = "";
+        String cnh = "";
 
         System.out.println("Qual a categoria da CNH? ");
-        tipo = in.next().toUpperCase();
-        //validacao
+        cnh = in.next().toUpperCase();
+        if (veiculoLocado.validaCNH(cnh)){
 
-        System.out.println("Telefone para contato: ");
-        telefone = in.next();
+            System.out.println("Telefone para contato: ");
+            telefone = in.next();
 
+            String placa = veiculoLocado.getPlaca();
+            Locacao locacao = new Locacao(placa, telefone);
+            cadastroLocacao.novaLocacao(locacao);
 
-        Locacao locacao = new Locacao(placa, telefone);
-        cadastroLocacao.novaLocacao(locacao);
-
+        } else {
+            System.out.println("Você não está apto para dirigir este tipo de veiculo");
+        }
+        
         return cadastroLocacao;
     }
 }
