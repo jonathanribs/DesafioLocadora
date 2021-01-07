@@ -63,6 +63,7 @@ public class Utilities {
 
         String cnh = "";
         String telefone = "";
+        String dataFinal = "";
 
         System.out.println("Qual a categoria da CNH? ");
         cnh = in.next().toUpperCase();
@@ -71,8 +72,11 @@ public class Utilities {
             System.out.println("Telefone para contato: ");
             telefone = in.next();
 
+            System.out.println("Data de termino da locacao (yyyy-mm-dd): ");
+            dataFinal = in.next();
+
             String placa = veiculoLocado.getPlaca();
-            Locacao locacao = new Locacao(placa, telefone);
+            Locacao locacao = new Locacao(placa, telefone, dataFinal);
             cadastroLocacao.adicionarLocacao(locacao);
 
             veiculoLocado.setDisponibilidade(false);

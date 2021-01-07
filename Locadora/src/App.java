@@ -1,4 +1,7 @@
+import java.text.SimpleDateFormat;
 import java.util.Scanner;
+import java.util.Date;
+import java.time.LocalDate;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -12,6 +15,9 @@ public class App {
 
         String opt = "";
         while (!opt.equals("X")){
+
+            LocalDate dataAtual = LocalDate.now();
+            locacoes.locacaoVencida(dataAtual);
 
             System.out.println("(C) Cadastrar Veiculo \n(V) Visualizar Frota \n(N) Nova Locacao"+ 
             "\n(E) Encerrar Locacoes \n(L) Visualizar Locacoes \n(X) Encerrar\n");
@@ -54,7 +60,9 @@ public class App {
                 }
 
             } else if (opt.equals("L")){ 
+                
                 locacoes.imprimeLocacoes();
+
             } else if (opt.equals("E")){
 
                 String placa = "";

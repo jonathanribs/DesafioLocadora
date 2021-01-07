@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class CadastroLocacao {
@@ -39,6 +40,16 @@ public class CadastroLocacao {
         System.out.println("Não ha veiculo locado com esta placa!");
         return false;  
 
+    }
+
+    public void locacaoVencida(LocalDate data){
+        for (Locacao l : locacao){
+
+            if (data.isAfter(l.getData())){
+                System.out.println("Locacao do veiculo de placa " + l.getPlaca() + " esta vencida! \n");
+            }
+
+        }
     }
     
 }
