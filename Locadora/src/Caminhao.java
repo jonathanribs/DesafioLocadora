@@ -2,10 +2,21 @@ public class Caminhao extends Veiculo{
 
     private int capacidade;
 
-    public Caminhao(String placa, String marca, int ano, String cor, int c) {
+    public Caminhao(String placa) {
         
-        super(placa, marca, ano, cor, "Caminhao");
-        this.capacidade = c;
+        super(placa, "Caminhao");
+
+        boolean validado = false;
+        while(!validado) {
+            try {
+                System.out.println("\nCapacidade de Carga (em toneladas): ");
+                this.capacidade = in.nextInt();
+                validado = true;
+            } catch (Exception e) {
+                System.out.println("NUMERO INVALIDO!");
+                in.nextLine();
+            }
+        }
         
     }
     

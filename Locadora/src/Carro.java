@@ -1,19 +1,47 @@
 public class Carro extends Veiculo{
 
     private int portas;
-    private boolean arCondicionado;
+    private String arCondicionado;
     private String cambio;
     private String direcao;
 
-    public Carro(String placa, String marca, int ano, String cor, int p, boolean a, String c, String d) {
+    public Carro(String placa){
         
-        super(placa, marca, ano, cor, "Carro");
-        this.portas = p;
-        this.arCondicionado = a;
-        //sysout ("o carro possui ar? (1)s (2) n")... if... this.arCondicionado = boolean
-        //passar as opções quando for o caso, mas não é necessário usar boolean se for só 2 opções
-        this.cambio = c;
-        this.direcao = d;
+        super(placa,"Carro");
+
+        boolean validado = false;
+        while(!validado) {
+            try {
+                System.out.println("\nNumero de portas: ");
+                this.portas = in.nextInt();
+                validado = true;
+            } catch (Exception e) {
+                System.out.println("NUMERO INVALIDO!");
+                in.nextLine();
+            }
+        }
+
+        String opt = "";
+
+        while (!(opt.equals("SIM") || (opt.equals("NAO")))){
+            System.out.println("\nAr Condicionado: \n(Sim) \n(Nao)\n");
+            opt=in.next().toUpperCase();
+        }
+        this.arCondicionado = opt;
+        opt = "";
+
+        while (!(opt.equals("MANUAL") || (opt.equals("AUTOMATICO")))){
+            System.out.println("\nCambio: \n(Manual) \n(Automatico)\n");
+            opt=in.next().toUpperCase();
+        }
+        this.cambio = opt;
+        opt = "";
+
+        while (!(opt.equals("MECANICA") || (opt.equals("HIDRAULICA")) || (opt.equals("ELETRICA")))){
+            System.out.println("\nDirecao: \n(Mecanica) \n(Hidraulica) \n(Eletrica)\n");
+            opt=in.next().toUpperCase();
+        }
+        this.direcao = opt;
         
     }
     
@@ -21,7 +49,7 @@ public class Carro extends Veiculo{
         return this.portas;
     }
 
-    public boolean getArCondicionado(){
+    public String getArCondicionado(){
         return this.arCondicionado;
     }
 

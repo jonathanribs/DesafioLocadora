@@ -52,7 +52,7 @@ public class Locacao {
 
                 validado = true;
 
-            } catch (DateTimeParseException ex) {
+            } catch (DateTimeParseException e) {
                 System.out.println("Data Inválida! A data deve ser no formato yyyy-mm-dd!! \n");
             }
         }

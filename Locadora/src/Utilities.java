@@ -28,25 +28,25 @@ public class Utilities {
 
                 if (opt.equals("A")){
 
-                    Moto veiculo = new Moto(novaPlaca, "honda", 2010, "vermelha", 125);
+                    Moto veiculo = new Moto(novaPlaca);
                     frota.novoVeiculo(veiculo);
                     opt = "X";
 
                 }else if (opt.equals("B")){
 
-                    Carro veiculo = new Carro(novaPlaca, "fiat", 2011, "prata", 4, true, "Auto", "Hidro");
+                    Carro veiculo = new Carro(novaPlaca);
                     frota.novoVeiculo(veiculo);
                     opt = "X";
 
                 } else if (opt.equals("C")){
 
-                    Caminhao veiculo = new Caminhao(novaPlaca, "ford", 2012, "branco", 10);
+                    Caminhao veiculo = new Caminhao(novaPlaca);
                     frota.novoVeiculo(veiculo);
                     opt = "X";
 
                 } else if (opt.equals("D")){
 
-                    Onibus veiculo = new Onibus(novaPlaca, "mercedes", 2013, "azul", 40);
+                    Onibus veiculo = new Onibus(novaPlaca);
                     frota.novoVeiculo(veiculo);
                     opt = "X";
 

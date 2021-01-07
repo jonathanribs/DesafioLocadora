@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public abstract class Veiculo {
 
     private String placa;
@@ -7,22 +9,41 @@ public abstract class Veiculo {
     private boolean disponivel;
     private String tipo;
 
-    public Veiculo (String placa, String marca, int ano, String cor, String tipo){
+    Scanner in = new Scanner(System.in);
 
-        /* System.out.println("Informe a placa:");
-        this.placa = in.next();
-        System.out.println("Informe a marca:")
-        this.marca = in.next();
-        System.out.println("Informe o ano:")
-        this.ano = in.next();
-        System.out.println("Informe a cor:")
-        this.cor = in.next();
-        
-        */
+    public Veiculo (String placa, String tipo){
+
         this.placa = placa;
-        this.marca = marca;
-        this.ano = ano;
-        this.cor = cor;
+
+        System.out.println("\nInforme a marca: ");
+        this.marca = in.nextLine();
+
+        boolean validado = false;
+        while(!validado) {
+            try {
+                System.out.println("\nInforme o ano: ");
+                this.ano = in.nextInt();
+
+                validado = true;
+            } catch (Exception e) {
+                System.out.println("ANO INVALIDO!");
+                in.nextLine(); //Consome o "enter" dado após ser informado o valor invalido. Se não for consumido, o sistema entra em loop
+            }
+        }
+        /*while(!validado) { //OUTRA FORMA DE FAZER SEM ENTRAR EM LOOP
+            System.out.println("Informe o ano: ");
+            String a = in.nextLine();
+            try {
+                this.ano = Integer.parseInt(a);
+                validado = true;
+            } catch (Exception e) {
+                System.out.println("Ano Invalido!\n");
+            }
+        }*/
+
+        System.out.println("\nInforme a cor: ");
+        this.cor = in.next(); 
+        
         this.disponivel = true;
         this.tipo = tipo;
 
@@ -61,7 +82,7 @@ public abstract class Veiculo {
     public abstract boolean validaCNH(String cnh);
 
     public void imprimirAtributos(){
-        System.out.println("Placa: " + this.getPlaca() + ", " + this.getTipo() + " " + 
+        System.out.println("Placa: " + this.getPlaca() + ", " + this.getTipo() + " ano " + 
             this.getAno() + " " + this.getCor() + " da marca " + this.getMarca());
     }
 

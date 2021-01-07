@@ -2,10 +2,21 @@ public class Onibus extends Veiculo{
 
     private int assentos;
 
-    public Onibus(String placa, String marca, int ano, String cor, int c) {
+    public Onibus(String placa) {
         
-        super(placa, marca, ano, cor, "Onibus");
-        this.assentos = c;
+        super(placa, "Onibus");
+
+        boolean validado = false;
+        while(!validado) {
+            try {
+                System.out.println("\nNumero de assentos: ");
+                this.assentos = in.nextInt();
+                validado = true;
+            } catch (Exception e) {
+                System.out.println("NUMERO INVALIDO!");
+                in.nextLine();
+            }
+        }
         
     }
     

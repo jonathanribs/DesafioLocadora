@@ -2,10 +2,21 @@ public class Moto extends Veiculo{
 
     private int cilindradas;
 
-    public Moto(String placa, String marca, int ano, String cor, int c) {
+    public Moto(String placa) {
         
-        super(placa, marca, ano, cor, "Moto");
-        this.cilindradas = c;
+        super(placa,"Moto");
+
+        boolean validado = false;
+        while(!validado) {
+            try {
+                System.out.println("\nCilindradas: ");
+                this.cilindradas = in.nextInt();
+                validado = true;
+            } catch (Exception e) {
+                System.out.println("NUMERO INVALIDO!");
+                in.nextLine();
+            }
+        }
         
     }
     
