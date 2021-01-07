@@ -15,8 +15,9 @@ public class CadastroLocacao {
 
         for (Locacao l : locacao){
 
-            System.out.println("\n" + l.getPlaca());
-            System.out.println(l.getTelefone());
+            System.out.println("\n Veiculo placa: " + l.getPlaca());
+            System.out.println("Whatsapp do locador: " + l.getTelefone());
+            System.out.println("Data limite: " + l.getData());
 
         }
 
@@ -31,7 +32,7 @@ public class CadastroLocacao {
 
                 int index = frota.buscarVeiculo(placa);
                 frota.veiculos.get(index).setDisponibilidade(true);
-                System.out.println("Locacao do veiculo placa " + placa + " encerrada com sucesso!");
+                System.out.println("Locacao do veiculo placa " + placa + " foi encerrada! \n");
 
                 return true;
             }
@@ -42,14 +43,23 @@ public class CadastroLocacao {
 
     }
 
-    public void locacaoVencida(LocalDate data){
+    public void locacaoVencida(LocalDate dataAtual, Frota frota){
+        
+        ArrayList<String> placasVencidas = new ArrayList<>();
+
         for (Locacao l : locacao){
 
-            if (data.isAfter(l.getData())){
+            if (dataAtual.isAfter(l.getData())){
                 System.out.println("Locacao do veiculo de placa " + l.getPlaca() + " esta vencida! \n");
+                placasVencidas.add(l.getPlaca());
             }
 
         }
+
+        for (String p : placasVencidas){
+            this.encerrarLocacao(p, frota);
+        }
+
     }
     
 }

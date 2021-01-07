@@ -1,6 +1,4 @@
-import java.text.SimpleDateFormat;
 import java.util.Scanner;
-import java.util.Date;
 import java.time.LocalDate;
 
 public class App {
@@ -17,7 +15,7 @@ public class App {
         while (!opt.equals("X")){
 
             LocalDate dataAtual = LocalDate.now();
-            locacoes.locacaoVencida(dataAtual);
+            locacoes.locacaoVencida(dataAtual, frota); //Sempre que o programa iniciar, confere se ha alguma locacao vencida
 
             System.out.println("(C) Cadastrar Veiculo \n(V) Visualizar Frota \n(N) Nova Locacao"+ 
             "\n(E) Encerrar Locacoes \n(L) Visualizar Locacoes \n(X) Encerrar\n");
@@ -72,10 +70,6 @@ public class App {
                 locacoes.encerrarLocacao(placa, frota);  
 
             }
-            //Criar uma opção de alterar data manualmente
-            //quando acontecer, varrer o vertor de cadastroLocacao comparando com o atributo data (que tmb deve ser add)
-            //se a data for maior, remover a locacao e imprimir uma mensagem
-            //A primeira coisa é criar a função que encerra determinada locacao a partir da placa
 
             System.out.println();
 
