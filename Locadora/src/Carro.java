@@ -61,6 +61,7 @@ public class Carro extends Veiculo{
         return this.direcao;
     }    
 
+    //Se a CNH do motorista estiver entre as opções, ela é validada
     public boolean validaCNH(String cnh){
         if (cnh.equals("B") || cnh.equals("C") || cnh.equals("D")){
             return true;

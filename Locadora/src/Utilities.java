@@ -6,6 +6,9 @@ public class Utilities {
 
     public Frota cadastrarVeiculo (Frota frota){
 
+        //O metodo inicialmente confere qual a placa do veiculo a ser cadastrado. Não faz o cadastro se já existir
+        //É apresentado um menu ao usuário para que informe qual o tipo de veiculo que será cadastrado
+        
         String opt = "";
 
         String novaPlaca = "";
@@ -60,6 +63,9 @@ public class Utilities {
     }
 
     public void novaLocacao (CadastroLocacao cadastroLocacao, Veiculo veiculoLocado){
+
+        //O método inicialmente confere, atraves da CNH, se a pessoa está apta a alugar o carro requerido
+        //Caso a locação seja efetuada, o Veiculo em questão é colocado como não disponivel para novas locações
 
         String cnh = "";
 

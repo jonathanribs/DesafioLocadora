@@ -13,11 +13,16 @@ public abstract class Veiculo {
 
     public Veiculo (String placa, String tipo){
 
+        //Somente a placa é passada externamente. O tipo é passado automaticamente pelas classes filhas
+        //Cada Veiculo implementa sua propria entrada de dados especificos
+        //Sempre que um novo veiculo é cadastrado, ele é considerado disponivel para locacao
+
         this.placa = placa;
 
         System.out.println("\nInforme a marca: ");
         this.marca = in.nextLine();
 
+        //O código abaixo garante que o usuário informe o ano em formato Inteiro
         boolean validado = false;
         while(!validado) {
             try {
@@ -79,6 +84,7 @@ public abstract class Veiculo {
         return this.tipo;
     }
 
+    //Exige a criação de metodo especifico para validação de CNH em cada um dos filhos
     public abstract boolean validaCNH(String cnh);
 
     public void imprimirAtributos(){

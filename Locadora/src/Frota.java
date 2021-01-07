@@ -12,6 +12,7 @@ public class Frota {
 
     public void imprimeVeiculos(){
 
+        //Chama o método especifico de cada veiculo para imprimir sua descrição completa
         System.out.println("VEICULOS");
         for (Veiculo v : veiculos){
             v.imprimirAtributos();
@@ -20,13 +21,16 @@ public class Frota {
     }
 
     public int buscarVeiculo(String placa){
+
+        //Busca na lista de veiculos aquele que corresponde a placa procurada
+        //Retorna o index do veiculo na lista. Retorna -1 se a placa não existir entre os veiculos cadastrados
         for(Veiculo v: veiculos){
             if (v.getPlaca().equals(placa)){
-                return veiculos.indexOf(v); // retorna o index do veiculo que possui a placa indicada
+                return veiculos.indexOf(v); 
             }
         }
         
-        return -1; //Retorna -1 se a placa não existir
+        return -1;
     }
         
 }

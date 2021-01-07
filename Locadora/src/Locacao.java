@@ -40,6 +40,7 @@ public class Locacao {
     }
     public void setData(){
 
+        //Só cadastra a data após verificar se foi digitado em formato válido
         boolean validado = false;
         while(!validado) {
             try {

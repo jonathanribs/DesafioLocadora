@@ -25,6 +25,8 @@ public class CadastroLocacao {
 
     public boolean encerrarLocacao(String placa, Frota frota){
 
+        //Este metodo varre a lista de Locacoes Ativas procurando a placa, caso encontre ele remove o item da lista 
+        //depois marca o veiculo dono da placa como disponivel novamente
         for (Locacao l : locacao){
 
             if (l.getPlaca().equals(placa)){
@@ -38,13 +40,16 @@ public class CadastroLocacao {
             }
         }
 
-        System.out.println("Não ha veiculo locado com esta placa!");
+        System.out.println("Não ha veiculo locado com esta placa!"); //Se a placa não for encontrada, nada é feito
         return false;  
 
     }
 
     public void locacaoVencida(LocalDate dataAtual, Frota frota){
         
+        //O metodo percorre a Lista de Locações ativas, comparando a data limite cadastrada com a data atual
+        //Caso a data cadastrada já tenha passada, ele imprime um aviso
+        //No fim, todas locações em que a Data Limite já passou são encerradas, ou seja, excluídas da lista de Locações Ativas
         ArrayList<String> placasVencidas = new ArrayList<>();
 
         for (Locacao l : locacao){
