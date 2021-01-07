@@ -15,7 +15,7 @@ public class CadastroLocacao {
 
         for (Locacao l : locacao){
 
-            System.out.println("\n Veiculo placa: " + l.getPlaca());
+            System.out.println("\nVeiculo placa: " + l.getPlaca());
             System.out.println("Whatsapp do locador: " + l.getTelefone());
             System.out.println("Data limite: " + l.getData());
 

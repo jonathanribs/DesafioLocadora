@@ -62,21 +62,13 @@ public class Utilities {
     public void novaLocacao (CadastroLocacao cadastroLocacao, Veiculo veiculoLocado){
 
         String cnh = "";
-        String telefone = "";
-        String dataFinal = "";
 
         System.out.println("Qual a categoria da CNH? ");
         cnh = in.next().toUpperCase();
         if (veiculoLocado.validaCNH(cnh)){
 
-            System.out.println("Telefone para contato: ");
-            telefone = in.next();
-
-            System.out.println("Data de termino da locacao (yyyy-mm-dd): ");
-            dataFinal = in.next();
-
             String placa = veiculoLocado.getPlaca();
-            Locacao locacao = new Locacao(placa, telefone, dataFinal);
+            Locacao locacao = new Locacao(placa);
             cadastroLocacao.adicionarLocacao(locacao);
 
             veiculoLocado.setDisponibilidade(false);

@@ -1,4 +1,6 @@
+import java.util.Scanner;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 
 public class Locacao {
 
@@ -6,11 +8,17 @@ public class Locacao {
     private String telefone;
     public LocalDate data;
 
-    public Locacao (String placa, String telefone, String data){
+    Scanner in = new Scanner(System.in);
+
+    public Locacao (String placa){
+
         this.placa = placa;
-        this.telefone = telefone;
-        //this.data = LocalDate.parse(data, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-        this.data = LocalDate.parse(data);
+        
+        System.out.println("Telefone para contato: ");
+        this.telefone = in.next();
+
+        this.setData();
+
     }
 
     public String getPlaca(){
@@ -30,8 +38,24 @@ public class Locacao {
     public LocalDate getData(){
         return this.data;
     }
-    public void setData(String data){
-        this.data = LocalDate.parse(data);
+    public void setData(){
+
+        boolean validado = false;
+        while(!validado) {
+            try {
+
+                String dataFinal = "";
+                System.out.println("Data de termino da locacao (yyyy-mm-dd): ");
+                dataFinal = in.next();
+
+                this.data = LocalDate.parse(dataFinal);
+
+                validado = true;
+
+            } catch (DateTimeParseException ex) {
+                System.out.println("Data Inválida! A data deve ser no formato yyyy-mm-dd!! \n");
+            }
+        }
     }
 
 }
